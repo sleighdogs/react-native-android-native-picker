@@ -22,10 +22,6 @@ class Picker extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            selectedValue: null
-        }
-
         this.labels = getLabels(this.props.items)
         this.values = getValues(this.props.items)
     }
@@ -39,8 +35,9 @@ class Picker extends React.Component {
             .then(
                 (index) => {
                     const value = this.values[index]
-                    this.setState({selectedValue: value})
-                    this.props.onValueChange(value, index)
+                    if (this.props.selectedValue !== value) {
+                        this.props.onValueChange(value, index)
+                    }
                 }
             )
             .catch(
@@ -53,8 +50,8 @@ class Picker extends React.Component {
     render() {
         return (
             <TouchableNativeFeedback
-                underlayColor={this.props.underlayColor || 'transparent'}
-                style={this.props.wrapperStyle || {}}
+                underlayColor={this.props.underlayColor}
+                style={this.props.wrapperStyle}
                 onPress={this.onPress}>
 
                 { React.Children.only(this.props.children) }
@@ -73,12 +70,16 @@ Picker.propTypes = {
     ).isRequired,
     onValueChange: PropTypes.func.isRequired,
     selectedValue: PropTypes.string,
-    prompt: PropTypes.string
+    prompt: PropTypes.string,
+    underlayColor: PropTypes.string,
+    wrapperStyle: PropTypes.object
 };
 
 Picker.defaultProps = {
     selectedValue: null,
-    prompt: null
+    prompt: null,
+    underlayColor: 'transparent',
+    wrapperStyle: {}
 }
 
 export default Picker
