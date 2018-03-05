@@ -1,6 +1,6 @@
 {
   "name": "react-native-android-native-picker",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React Native package to work around consistency issue with 'onValueChange()' on Android; see https://github.com/facebook/react-native/issues/15556#issuecomment-359478181 .",
   "main": "index.js",
   "scripts": {
