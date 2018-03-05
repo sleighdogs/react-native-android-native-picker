@@ -1,6 +1,8 @@
 # react-native-android-native-picker
 > React Native package to work around inconsistency issues with 'onValueChange()' on Android react native picker.
 
+This package is based on work from [https://github.com/tombailey/react-native-fixed-android-picker](https://github.com/tombailey/react-native-fixed-android-picker)
+
 ## Installation
 Since we are not in NPM registry you have to install this package via git.
 
