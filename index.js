@@ -1,3 +1,4 @@
+import React from 'react'
 import { Picker as RNPicker, Platform } from 'react-native'
 
 import Picker from './src/Picker'
