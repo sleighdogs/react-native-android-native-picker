@@ -14,7 +14,7 @@ import java.util.List;
 
 public class NativeAndroidPickerModule extends ReactContextBaseJavaModule {
 
-    public FixedAndroidPickerModule(ReactApplicationContext reactContext) {
+    public NativeAndroidPickerModule(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
