@@ -32,11 +32,15 @@ class Picker extends React.Component {
 
     onPress = () => {
         NativeModules.NativeAndroidPicker
-            .showPickerDialog(this.props.prompt || '', this.labels)
+            .showPickerDialog(
+                this.props.prompt || '',
+                this.labels
+            )
             .then(
                 (index) => {
-                    this.setState({selectedValue: this.values[index]})
-                    this.props.onValueChange(this.values[index], index)
+                    const value = this.values[index]
+                    this.setState({selectedValue: value})
+                    this.props.onValueChange(value, index)
                 }
             )
             .catch(

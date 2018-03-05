@@ -29,7 +29,7 @@ public class NativeAndroidPickerModule extends ReactContextBaseJavaModule {
 
         AlertDialog.Builder adBuilder = new AlertDialog.Builder(getCurrentActivity());
         if (title.length() > 0) {
-            adBuilder.setMessage(title);
+            adBuilder.setTitle(title);
         }
 
         adBuilder
