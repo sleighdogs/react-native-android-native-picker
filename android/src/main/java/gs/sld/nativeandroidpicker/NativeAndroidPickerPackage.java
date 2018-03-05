@@ -12,7 +12,7 @@ import com.facebook.react.uimanager.ViewManager;
 
 public class NativeAndroidPickerPackage implements ReactPackage {
 
-    public NativedAndroidPickerPackage() {}
+    public NativeAndroidPickerPackage() {}
     public NativeAndroidPickerPackage(Activity activity) {}
 
     @Override
