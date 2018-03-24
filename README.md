@@ -14,7 +14,7 @@ yarn add https://github.com/sleighdogs/react-native-android-native-picker.git#ma
 
 Since this package contains a bit of native code you have to link it with react native.
 ```bash
-react-native link react-native-fixed-android-picker
+react-native link react-native-android-native-picker
 ```
 
 In case you are receiving error about missing package, check `android/app/build.gradle` and make sure that you have following line in your dependencies:
