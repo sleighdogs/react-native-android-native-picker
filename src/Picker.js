@@ -21,20 +21,17 @@ const getValues = (items) => {
 class Picker extends React.Component {
     constructor(props) {
         super(props)
-
-        this.labels = getLabels(this.props.items)
-        this.values = getValues(this.props.items)
     }
 
     onPress = () => {
         NativeModules.NativeAndroidPicker
             .showPickerDialog(
                 this.props.prompt || '',
-                this.labels
+                getLabels(this.props.items)
             )
             .then(
                 (index) => {
-                    const value = this.values[index]
+                    const value = getValues(this.props.items)[index]
                     if (this.props.selectedValue !== value) {
                         this.props.onValueChange(value, index)
                     }
