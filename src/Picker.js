@@ -24,6 +24,8 @@ class Picker extends React.Component {
     }
 
     onPress = () => {
+		if (this.props.onOpen) this.props.onOpen()
+
         NativeModules.NativeAndroidPicker
             .showPickerDialog(
                 this.props.prompt || '',
@@ -35,11 +37,14 @@ class Picker extends React.Component {
                     if (this.props.selectedValue !== value) {
                         this.props.onValueChange(value, index)
                     }
+					
+					if (this.props.onClose) this.props.onClose(value)
                 }
             )
             .catch(
                 (error) => {
                     //dialog closed
+					if (this.props.onClose) this.props.onClose()
                 }
             )
     }
@@ -69,14 +74,18 @@ Picker.propTypes = {
     selectedValue: PropTypes.string,
     prompt: PropTypes.string,
     underlayColor: PropTypes.string,
-    wrapperStyle: PropTypes.object
+    wrapperStyle: PropTypes.object,
+	onOpen: PropTypes.func,
+	onClose: PropTypes.func,
 };
 
 Picker.defaultProps = {
     selectedValue: null,
     prompt: null,
     underlayColor: 'transparent',
-    wrapperStyle: {}
+    wrapperStyle: {},
+	onOpen: null,
+	onClose: null
 }
 
 export default Picker
