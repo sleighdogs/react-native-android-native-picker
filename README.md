@@ -32,11 +32,14 @@ Luckily iOS does not suffer from same issues as Android RN picker, so internally
 
 |Prop|Type|Description|Required|Default|
 |---|---|---|---|---|
-|**`items`**|array|array of `{value: 'foo', label: 'bar'}` objects|yes|-|
-|**`onValueChange`**|function|function that will be called each time new option is selected|yes|-|
-|**`selectedValue`**|string|current value of picker (useful for selectboxes)|no|`null`|
 |**`prompt`**|string|dialog title|no|`null`|
+|**`items`**|array|array of `{value: 'foo', label: 'bar'}` objects|yes|`null`|
+|**`selectedValue`**|string|current value of picker (useful for selectboxes)|no|`null`|
+|**`onValueChange`**|function|function that will be called each time new option is selected|yes|`null`|
+|**`onOpen`**|function|function called when picker is open|no|`null`|
+|**`onClose`**|function|function called when picker is closed (either by making a selection or cancelling the picker)<br> params:<br> - `value`: selected value or undefined (when picker was cancelled)|no|`null`|
 |**`underlayColor`**|string|underlay color used for wrapper `TouchableNativeFeedback`|no|`transparent`|
+|**`touchableBackground`**|string|background prop for `TouchableNativeFeedback`|no|`null`|
 |**`wrapperStyle`**|object|additional styling applied to wrapper `TouchableNativeFeedback`|no|`{}`|
 
 ### Styling
