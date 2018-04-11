@@ -50,11 +50,18 @@ class Picker extends React.Component {
     }
 
     render() {
+        const touchableProps = {
+            underlayColor: this.props.underlayColor,
+            style: this.props.wrapperStyle,
+            onPress: this.onPress
+        }
+
+        if (this.props.touchableBackground) {
+            touchableProps.background = this.props.touchableBackground
+        }
+
         return (
-            <TouchableNativeFeedback
-                underlayColor={this.props.underlayColor}
-                style={this.props.wrapperStyle}
-                onPress={this.onPress}>
+            <TouchableNativeFeedback {...touchableProps}>
 
                 { React.Children.only(this.props.children) }
 
@@ -77,6 +84,7 @@ Picker.propTypes = {
     wrapperStyle: PropTypes.object,
 	onOpen: PropTypes.func,
 	onClose: PropTypes.func,
+    touchableBackground: PropTypes.any
 };
 
 Picker.defaultProps = {
@@ -85,7 +93,8 @@ Picker.defaultProps = {
     underlayColor: 'transparent',
     wrapperStyle: {},
 	onOpen: null,
-	onClose: null
+	onClose: null,
+    touchableBackground: null
 }
 
 export default Picker
