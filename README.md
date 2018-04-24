@@ -24,7 +24,7 @@ compile project(':react-native-android-native-picker')
 ```
 
 ### iOS Setup
-Luckily iOS does not suffer from same issues as Android RN picker, so internally we revert to using default Picker from `react-native` and pass all props to it.
+Luckily iOS does not suffer from same issues as Android RN picker and we strongly encourage you use different component/solution for iOS. Use this package only on Android. However internally we revert to using default Picker from `react-native`, pass all props to it and insert inside array of `Picker.Item` components constructed from `items` prop, just in case.
 
 ## Usage
 
